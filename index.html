@@ -1,0 +1,30 @@
+<!doctype html>
+<!-- mathville.app itself: sends a visitor to the page in their language (Slovak readers to the Czech one), English when none of the five fits. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mathville · Matikov · Mathedorf</title>
+<link rel="icon" href="/icon.png">
+<link rel="alternate" hreflang="cs" href="https://mathville.app/cs/">
+<link rel="alternate" hreflang="en" href="https://mathville.app/en/">
+<link rel="alternate" hreflang="es" href="https://mathville.app/es/">
+<link rel="alternate" hreflang="fr" href="https://mathville.app/fr/">
+<link rel="alternate" hreflang="de" href="https://mathville.app/de/">
+<link rel="alternate" hreflang="x-default" href="https://mathville.app/">
+<script>
+  const ours = ["cs", "en", "es", "fr", "de"];
+  const pick = (navigator.languages || [navigator.language || "en"]).map(l => l.slice(0, 2).toLowerCase().replace("sk", "cs")).find(l => ours.includes(l));
+  location.replace("/" + (pick || "en") + "/");
+</script>
+<link rel="stylesheet" href="/site.css">
+</head>
+<body class="guide">
+<div class="wrap" style="padding-top:60px">
+  <ul class="toc">
+    <li><a href="/cs/" lang="cs">Česky</a></li><li><a href="/en/" lang="en">English</a></li><li><a href="/es/" lang="es">Español</a></li>
+    <li><a href="/fr/" lang="fr">Français</a></li><li><a href="/de/" lang="de">Deutsch</a></li>
+  </ul>
+</div>
+</body>
+</html>
